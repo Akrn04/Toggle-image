@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Image with Fade Effect</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Image Fade In/Out</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        #image1, #image2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+            transition: opacity 1s ease-in-out;
+        }
+        #image2 {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="image-container">
-        <img id="image1" src="image1.png" alt="Image 1" class="active" onclick="toggleImage()">
-        <img id="image2" src="image2.png" alt="Image 2" onclick="toggleImage()">
-    </div>
 
-    <script src="script.js"></script>
+    <img id="image1" src="image1.png" alt="Image 1">
+    <img id="image2" src="image2.png" alt="Image 2">
+
+    <script>
+        document.getElementById('image1').addEventListener('click', function() {
+            document.getElementById('image1').style.opacity = '0';
+            document.getElementById('image2').style.opacity = '1';
+        });
+
+        document.getElementById('image2').addEventListener('click', function() {
+            document.getElementById('image2').style.opacity = '0';
+            document.getElementById('image1').style.opacity = '1';
+        });
+    </script>
+
 </body>
 </html>
